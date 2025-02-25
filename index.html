@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Frontend Mentor | Frontend quiz app</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="theme-toggle">
+          <img src="./assets/images/icon-sun-dark.svg" alt="light theme" />
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          <img src="./assets/images/icon-moon-dark.svg" alt="dark theme" />
+        </div>
+      </header>
+
+      <main>
+        <section class="quiz-menu active">
+          <div class="title">
+            <h1>Welcome to the Frontend Quiz!</h1>
+            <p>Pick a subject to get started.</p>
+          </div>
+
+          <div class="subjects">
+            <button class="subject-item">
+              <div class="icon html">
+                <img src="./assets/images/icon-html.svg" alt="HTML icon" />
+              </div>
+              <span>HTML</span>
+            </button>
+
+            <button class="subject-item">
+              <div class="icon css">
+                <img src="./assets/images/icon-css.svg" alt="CSS icon" />
+              </div>
+              <span>CSS</span>
+            </button>
+
+            <button class="subject-item">
+              <div class="icon js">
+                <img src="./assets/images/icon-js.svg" alt="JavaScript icon" />
+              </div>
+              <span>JavaScript</span>
+            </button>
+
+            <button class="subject-item">
+              <div class="icon accessibility">
+                <img
+                  src="./assets/images/icon-accessibility.svg"
+                  alt="Accessibility icon"
+                />
+              </div>
+              <span>Accessibility</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="quiz-question hidden">
+          <div class="question-header">
+            <h2>Question <span class="current">1</span> of 10</h2>
+            <p class="question-text"></p>
+          </div>
+
+          <div class="options">
+            <button class="option" data-option="A">
+              <span class="letter">A</span>
+              <span class="text"></span>
+            </button>
+            <button class="option" data-option="B">
+              <span class="letter">B</span>
+              <span class="text"></span>
+            </button>
+            <button class="option" data-option="C">
+              <span class="letter">C</span>
+              <span class="text"></span>
+            </button>
+            <button class="option" data-option="D">
+              <span class="letter">D</span>
+              <span class="text"></span>
+            </button>
+          </div>
+
+          <button class="submit-btn" disabled>Submit Answer</button>
+        </section>
+
+        <section class="quiz-completed hidden">
+          <h2>Quiz completed</h2>
+          <p>You scored...</p>
+          <div class="score-display">
+            <span class="final-score">0</span>
+            <span>out of 10</span>
+          </div>
+          <button class="play-again">Play Again</button>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
