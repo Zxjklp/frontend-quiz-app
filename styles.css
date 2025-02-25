@@ -1,7 +1,8 @@
 /* Font and Variables */
 @font-face {
   font-family: "Rubik";
-  src: url("./assets/font/Rubik-VariableFont_wght.ttf");
+  src: url("./assets/font/Rubik-VariableFont_wght.ttf")
+    format("truetype-variations");
   font-weight: 300 700;
   font-style: normal;
   font-display: swap;
@@ -22,6 +23,7 @@
   --heading-large: 4rem;
   --heading-medium: 2rem;
   --text-regular: 1.25rem;
+  --gap-xlarge: 4rem;
   --gap-large: 2.5rem;
   --gap-medium: 1.5rem;
 }
@@ -46,7 +48,7 @@ body {
 header {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: var(--gap-large);
+  margin-bottom: var(--gap-xlarge);
 }
 
 .theme-toggle {
@@ -105,10 +107,6 @@ header {
 }
 
 /* Main Content */
-main {
-  margin-top: 2rem;
-}
-
 .quiz-menu {
   display: flex;
   flex-direction: row;
@@ -117,8 +115,8 @@ main {
 }
 
 .title {
-  flex: 1; /* Take up remaining space */
-  max-width: 465px;
+  flex: 1;
+  max-width: 475px;
 }
 
 .quiz-question,
@@ -134,9 +132,13 @@ h1 {
   margin-bottom: var(--gap-medium);
   color: var(--dark-navy);
 }
+h1 span {
+  font-weight: 600;
+}
 
 .title p {
   font-size: var(--text-regular);
+  font-style: italic;
   color: var(--navy);
   margin-top: 1rem;
 }
@@ -297,17 +299,17 @@ h1 {
     --heading-large: 2.5rem;
     --container-padding: 1.5rem;
   }
-  
+
   .quiz-menu {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .title {
     text-align: center;
     margin-bottom: 2rem;
   }
-  
+
   .subjects {
     width: 100%;
   }
