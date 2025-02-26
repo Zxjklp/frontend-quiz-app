@@ -17,6 +17,16 @@
   --white: #ffffff;
   --font-rubik: "Rubik", sans-serif;
 
+  /* Theme-specific colors - Light Mode (default) */
+  --bg-color: var(--light-gray);
+  --text-color: var(--dark-navy);
+  --text-secondary: var(--navy);
+  --card-bg: var(--white);
+  --bg-pattern: url("./assets/images/pattern-background-desktop-light.svg");
+  --bg-pattern-tablet: url("./assets/images/pattern-background-tablet-light.svg");
+  --bg-pattern-mobile: url("./assets/images/pattern-background-mobile-light.svg");
+  --border-color: var(--light-bluish);
+
   /* Desktop Design Constants */
   --container-max-width: 1160px;
   --container-padding: 2.5rem;
@@ -28,11 +38,27 @@
   --gap-medium: 1.5rem;
 }
 
+/* Dark Mode */
+body.dark-mode {
+  --bg-color: var(--dark-navy);
+  --text-color: var(--white);
+  --text-secondary: var(--light-bluish);
+  --card-bg: var(--navy);
+  --bg-pattern: url("./assets/images/pattern-background-desktop-dark.svg");
+  --bg-pattern-tablet: url("./assets/images/pattern-background-tablet-dark.svg");
+  --bg-pattern-mobile: url("./assets/images/pattern-background-mobile-dark.svg");
+  --border-color: var(--navy);
+}
+
 /* Base Styles - Desktop Only */
 body {
   font-family: var(--font-rubik);
-  background-color: var(--light-gray);
-  color: var(--dark-navy);
+  background-color: var(--bg-color);
+  background-image: var(--bg-pattern);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
   min-height: 100vh;
   padding: var(--container-padding);
   display: grid;
@@ -106,6 +132,15 @@ header {
   transition: 0.4s;
 }
 
+/* Add these styles for the slider movement */
+.switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.switch input:checked + .slider {
+  background-color: var(--purple);
+}
+
 /* Main Content */
 .quiz-menu {
   display: flex;
@@ -130,7 +165,7 @@ h1 {
   line-height: 1.1;
   font-weight: 300;
   margin-bottom: var(--gap-medium);
-  color: var(--dark-navy);
+  color: var(--text-color);
 }
 h1 span {
   font-weight: 600;
@@ -139,7 +174,7 @@ h1 span {
 .title p {
   font-size: var(--text-regular);
   font-style: italic;
-  color: var(--navy);
+  color: var(--text-secondary);
   margin-top: 1rem;
 }
 
@@ -156,7 +191,7 @@ h1 span {
   display: flex;
   align-items: center;
   padding: 1.2rem 2rem;
-  background-color: var(--white);
+  background-color: var(--card-bg);
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -164,6 +199,15 @@ h1 span {
   font-size: var(--text-regular);
   font-weight: 500;
   text-align: left;
+  color: var(
+    --text-color
+  ); /* Add this to ensure text color changes with theme */
+}
+
+.subject-item span {
+  color: var(
+    --text-color
+  ); /* Explicitly set the text color for spans inside subject-item */
 }
 
 .subject-item:hover {
@@ -199,7 +243,7 @@ h1 span {
 }
 
 .question-header h2 {
-  color: var(--navy);
+  color: var(--text-secondary);
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
 }
@@ -207,7 +251,7 @@ h1 span {
 .question-text {
   font-size: 2rem;
   line-height: 1.2;
-  color: var(--dark-navy);
+  color: var(--text-color);
   margin-bottom: 2.5rem;
 }
 
@@ -221,8 +265,8 @@ h1 span {
   display: flex;
   align-items: center;
   padding: 1.2rem 2rem;
-  background-color: var(--white);
-  border: 2px solid var(--light-bluish);
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
   border-radius: 12px;
   cursor: pointer;
   transition: border-color 0.2s;
@@ -236,7 +280,7 @@ h1 span {
 .letter {
   font-weight: bold;
   margin-right: 2rem;
-  color: var(--navy);
+  color: var(--text-secondary);
 }
 
 .submit-btn {
@@ -263,7 +307,7 @@ h1 span {
 }
 
 .score-display {
-  background-color: var(--white);
+  background-color: var(--card-bg);
   padding: 2rem;
   border-radius: 12px;
   margin: 2rem 0;
@@ -272,7 +316,7 @@ h1 span {
 .final-score {
   font-size: 3rem;
   font-weight: bold;
-  color: var(--dark-navy);
+  color: var(--text-color);
 }
 
 .play-again {
@@ -293,11 +337,54 @@ h1 span {
   display: flex !important;
 }
 
-/* Media query for tablet and mobile */
+/* Media queries */
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :root {
+    --heading-large: 3.5rem;
+    --container-padding: 2rem;
+    --gap-large: 2rem;
+  }
+
+  body {
+    background-image: var(--bg-pattern-tablet);
+  }
+
+  .container {
+    max-width: 90%;
+  }
+
+  .quiz-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-large);
+  }
+
+  .title {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .subjects {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .subject-item {
+    max-width: 564px;
+  }
+}
+
+/* Mobile Breakpoint */
 @media (max-width: 768px) {
   :root {
     --heading-large: 2.5rem;
     --container-padding: 1.5rem;
+  }
+
+  body {
+    background-image: var(--bg-pattern-mobile);
   }
 
   .quiz-menu {
@@ -306,11 +393,12 @@ h1 span {
   }
 
   .title {
-    text-align: center;
-    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   .subjects {
     width: 100%;
+    max-width: 100%;
   }
 }
