@@ -130,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function loadQuestion() {
     const question = currentQuiz.questions[currentQuestionIndex];
     selectedAnswer = null;
-    // Remove the disabled attribute since button should be always clickable
     submitButton.disabled = false;
 
     // Hide error message when loading a new question
@@ -148,8 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
       textSpan.textContent = question.options[index];
       option.classList.remove("selected", "correct", "wrong");
       option.style.borderColor = "";
-      option.disabled = false; // Re-enable options for new question
-      option.style.pointerEvents = "auto"; // Reset pointer events
+      option.disabled = false;
+      option.style.pointerEvents = "auto";
     });
 
     // Add click event to options
@@ -159,7 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     });
 
-    // Reset button text to "Submit Answer" for all questions
     submitButton.textContent = "Submit Answer";
 
     // Reset and start the timer
@@ -247,8 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selectedAnswer !== correctAnswerIndex) {
         options[selectedAnswer].classList.add("wrong");
       } else {
-        // Only increment score if this is first submission for this question
-        // Check button text to make sure we don't add score on "Next Question"/"See Results" click
         if (submitButton.textContent === "Submit Answer") {
           score++;
         }
@@ -260,11 +256,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // For the last question, change text to "Finish Quiz" instead of "Next Question"
       if (isLastQuestion) {
-        submitButton.textContent = "See Results";
+        submitButton.textContent = "Finish Quiz";
 
         // Set button behavior for last question
         submitButton.onclick = () => {
-          showResults(); // Go directly to results
+          showResults();
           submitButton.onclick = null;
         };
       } else {
@@ -326,7 +322,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Play again button event
   playAgainButton.addEventListener("click", () => {
-    // Hide the quiz header when returning to menu
     document.querySelector("header .quiz-header").classList.add("hidden");
     document.querySelector(".header-content").classList.remove("quiz-active");
 

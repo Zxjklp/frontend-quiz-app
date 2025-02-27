@@ -18,6 +18,16 @@
   --white: #ffffff;
   --font-rubik: "Rubik", sans-serif;
 
+  /* Additional colors */
+  --light-purple-bg: #f6e7ff;
+  --light-blue-bg: #ebf0ff;
+  --light-green-bg: #e0fdef;
+  --light-orange-bg: #fff1e9;
+  --success-color: #26d782;
+  --error-color: #ee5454;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-color-accent: rgba(143, 160, 193, 0.14);
+
   /* Theme-specific colors - Light Mode (default) */
   --bg-color: var(--light-gray);
   --text-color: var(--dark-navy);
@@ -38,10 +48,10 @@
   --gap-medium: 1.5rem;
 
   /* Subject-specific Colors */
-  --html-color: #ff7e36; /* More vibrant orange for HTML */
-  --css-color: #2fd887; /* More vibrant green for CSS */
-  --js-color: #306aff; /* More vibrant blue for JavaScript */
-  --accessibility-color: #a729f5; /* Purple for Accessibility (already defined as --purple) */
+  --html-color: #ff7e36;
+  --css-color: #2fd887;
+  --js-color: #306aff;
+  --accessibility-color: #a729f5;
 
   /* RGB versions for opacity adjustments */
   --html-color-rgb: 255, 126, 54;
@@ -49,7 +59,7 @@
   --js-color-rgb: 48, 106, 255;
   --accessibility-color-rgb: 167, 41, 245;
 
-  /* Default active color (will be overridden) */
+  /* Active color for the quiz */
   --active-color: var(--purple);
   --active-color-rgb: var(--accessibility-color-rgb);
 }
@@ -128,7 +138,6 @@ header {
   width: 0;
   height: 0;
   position: absolute;
-  /* Don't remove from tab order */
   z-index: 1;
 }
 
@@ -161,7 +170,7 @@ header {
 }
 
 .switch:focus-within {
-  outline: 3px solid var(--text-color); /* Uses text-color which is dark in light mode and white in dark mode */
+  outline: 3px solid var(--text-color); 
   border-radius: 34px;
 }
 
@@ -222,7 +231,7 @@ h1 span {
   font-weight: 500;
   text-align: left;
   color: var(--text-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .subject-item:hover {
@@ -240,16 +249,16 @@ h1 span {
 }
 
 .icon.html {
-  background-color: #fff1e9;
+  background-color: var(--light-orange-bg);
 }
 .icon.css {
-  background-color: #e0fdef;
+  background-color: var(--light-green-bg);
 }
 .icon.js {
-  background-color: #ebf0ff;
+  background-color: var(--light-blue-bg);
 }
 .icon.accessibility {
-  background-color: #f6e7ff;
+  background-color: var(--light-purple-bg);
 }
 
 /* Question Display */
@@ -268,17 +277,13 @@ h1 span {
 }
 
 .question-header h2 {
-  font-size: 20px;
+  font-size: 1.25rem; 
   color: var(--text-secondary);
   font-weight: 400;
   margin-bottom: 28px;
   opacity: 0.8;
   font-style: italic;
 }
-
-/* .quiz-title {
-  font-weight: 500;
-} */
 
 .question-text {
   font-size: 36px;
@@ -325,9 +330,8 @@ h1 span {
   border-radius: 24px;
   cursor: pointer;
   transition: border-color 0.2s;
-  width: 100%;
   text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 8px var(--shadow-color);
   position: relative; /* Add positioning context for the icon */
 }
 
@@ -355,7 +359,7 @@ h1 span {
   align-items: center;
   justify-content: center;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--text-secondary);
   margin-right: 32px;
   min-width: 50px;
@@ -369,22 +373,14 @@ h1 span {
   font-size: 20px;
   color: var(--text-color);
   font-weight: 500;
-  flex: 1; /* Make the text take up all available space */
+  flex: 1;
 }
 
 .icon-status {
   width: 40px;
   height: 40px;
-  display: none; /* Hidden by default */
+  display: none;
   margin-left: 10px;
-}
-
-.option.correct {
-  /* Remove border-color: #26d782; (green border) */
-}
-
-.option.wrong {
-  /* Remove border-color: #ee5454; (red border) */
 }
 
 .option.correct .icon-status {
@@ -397,7 +393,6 @@ h1 span {
   background: url("./assets/images/icon-error.svg") no-repeat center;
 }
 
-/* Disable option selection after submission */
 .options.answered .option {
   cursor: default;
 }
@@ -409,15 +404,13 @@ h1 span {
   color: var(--white);
   border: none;
   border-radius: 24px;
-  font-size: 24px; /* Increased from 18px to 24px */
-  font-weight: 700;
+  font-size: 1.5rem;
   width: 100%;
   cursor: pointer;
   transition: opacity 0.2s;
   box-shadow: 0 4px 12px rgba(var(--active-color-rgb), 0.3);
 }
 
-/* Remove disabled styles since the button should always be clickable */
 .submit-btn:hover {
   opacity: 0.9;
 }
@@ -429,7 +422,7 @@ h1 span {
   justify-content: center;
   gap: 8px;
   margin-top: 26px;
-  color: #ee5454;
+  color: var(--error-color);
   font-size: 16px;
 }
 
@@ -450,7 +443,7 @@ h1 span {
 }
 
 .quiz-completed h2 {
-  font-size: 64px;
+  font-size: 4rem;
   font-weight: 500;
   color: var(--text-color);
   margin-bottom: 16px;
@@ -458,7 +451,7 @@ h1 span {
 }
 
 .quiz-completed p {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--text-secondary);
   font-weight: 400;
   font-style: italic;
@@ -470,11 +463,11 @@ h1 span {
   padding: 48px;
   border-radius: 24px;
   margin-bottom: 32px;
-  box-shadow: 0 16px 40px rgba(143, 160, 193, 0.14);
+  box-shadow: 0 16px 40px var(--shadow-color-accent);
 }
 
 .score-display .final-score {
-  font-size: 88px;
+  font-size: 5.5rem;
   font-weight: 500;
   color: var(--text-color);
   display: block;
@@ -482,7 +475,7 @@ h1 span {
 }
 
 .score-display .out-of {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--text-secondary);
 }
 
@@ -494,7 +487,7 @@ h1 span {
   border: none;
   border-radius: 24px;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 500;
   box-shadow: 0 8px 24px rgba(var(--active-color-rgb), 0.25);
   transition: opacity 0.2s;
@@ -534,14 +527,14 @@ h1 span {
 }
 
 .quiz-header .quiz-title {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 500;
   color: var(--text-color);
 }
 
 /* HTML */
 .quiz-header .subject-icon.html {
-  background-color: #fff1e9;
+  background-color: var(--light-orange-bg);
 }
 body.html-active {
   --active-color: var(--html-color);
@@ -550,7 +543,7 @@ body.html-active {
 
 /* CSS */
 .quiz-header .subject-icon.css {
-  background-color: #e0fdef;
+  background-color: var(--light-green-bg);
 }
 body.css-active {
   --active-color: var(--css-color);
@@ -559,7 +552,7 @@ body.css-active {
 
 /* JavaScript */
 .quiz-header .subject-icon.javascript {
-  background-color: #ebf0ff;
+  background-color: var(--light-blue-bg);
 }
 body.javascript-active {
   --active-color: var(--js-color);
@@ -568,7 +561,7 @@ body.javascript-active {
 
 /* Accessibility */
 .quiz-header .subject-icon.accessibility {
-  background-color: #f6e7ff;
+  background-color: var(--light-purple-bg);
 }
 body.accessibility-active {
   --active-color: var(--accessibility-color);
@@ -589,7 +582,7 @@ body.accessibility-active {
   .question-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Reduced gap */
+    gap: 20px;
   }
 
   .timer-container {
@@ -631,12 +624,6 @@ body.accessibility-active {
   .question-text {
     font-size: 30px;
   }
-
-  /* .timer-container {
-    position: relative;
-    width: 100%;
-    bottom: auto;
-  } */
 }
 
 @media (max-width: 768px) {
