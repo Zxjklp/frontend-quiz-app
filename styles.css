@@ -3,6 +3,3 @@
 @import "css/layout.css";
 @import "css/components.css";
 @import "css/media-queries.css";
-/* utilities.css is already being imported in the HTML file */
-
-/* Any additional global styles that don't fit in the above categories can go here */

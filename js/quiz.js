@@ -45,7 +45,6 @@ export const quizManager = {
       this.resetQuiz.bind(this)
     );
 
-    
     this.elements.optionsContainer.addEventListener("click", (e) => {
       const option = e.target.closest(".option");
       if (option) {
@@ -83,8 +82,14 @@ export const quizManager = {
     this.elements.header.subjectIcon.className = `subject-icon ${subject.toLowerCase()}`;
     this.elements.header.subjectIcon.innerHTML = `<img src="${icon}" alt="${subject} icon">`;
 
-    // Set theme color
+    // Set theme color while preserving dark mode if active
+    const isDarkMode = document.body.classList.contains("dark-mode");
     document.body.className = subject.toLowerCase() + "-active";
+
+    // Re-add the dark-mode class if it was previously active
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+    }
   },
 
   loadQuestion() {
@@ -246,8 +251,8 @@ export const quizManager = {
     this.elements.header.quizHeader.classList.add("hidden");
     this.elements.header.headerContent.classList.remove("quiz-active");
 
-    // Reset theme
-    document.body.className = "";
+    const isDarkMode = document.body.classList.contains("dark-mode");
+    document.body.className = isDarkMode ? "dark-mode" : "";
 
     // Show menu
     this.showSection("menu");
