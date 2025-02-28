@@ -1,0 +1,77 @@
+/* Font definition */
+@font-face {
+  font-family: "Rubik";
+  src: url("../assets/font/Rubik-VariableFont_wght.ttf")
+    format("truetype-variations");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Colors */
+  --purple: #a729f5;
+  --dark-navy: #313e51;
+  --navy: #3b4d66;
+  --light-bluish: #abc1e1;
+  --light-gray: #f4f6fa;
+  --white: #ffffff;
+  --font-rubik: "Rubik", sans-serif;
+
+  /* Additional colors */
+  --light-purple-bg: #f6e7ff;
+  --light-blue-bg: #ebf0ff;
+  --light-green-bg: #e0fdef;
+  --light-orange-bg: #fff1e9;
+  --success-color: #26d782;
+  --error-color: #ee5454;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-color-accent: rgba(143, 160, 193, 0.14);
+
+  /* Theme-specific colors - Light Mode (default) */
+  --bg-color: var(--light-gray);
+  --text-color: var(--dark-navy);
+  --text-secondary: var(--navy);
+  --card-bg: var(--white);
+  --bg-pattern: url("../assets/images/pattern-background-desktop-light.svg");
+  --bg-pattern-tablet: url("../assets/images/pattern-background-tablet-light.svg");
+  --bg-pattern-mobile: url("../assets/images/pattern-background-mobile-light.svg");
+  --border-color: var(--light-bluish);
+
+  /* Design Constants */
+  --container-max-width: 1160px;
+  --container-padding: 2.5rem;
+  --heading-large: 4rem;
+  --heading-medium: 2rem;
+  --text-regular: 1.25rem;
+  --gap-large: 2.5rem;
+  --gap-medium: 1.5rem;
+
+  /* Subject-specific Colors */
+  --html-color: #ff7e36;
+  --css-color: #2fd887;
+  --js-color: #306aff;
+  --accessibility-color: #a729f5;
+
+  /* RGB versions for opacity adjustments */
+  --html-color-rgb: 255, 126, 54;
+  --css-color-rgb: 47, 216, 135;
+  --js-color-rgb: 48, 106, 255;
+  --accessibility-color-rgb: 167, 41, 245;
+
+  /* Active color for the quiz */
+  --active-color: var(--purple);
+  --active-color-rgb: var(--accessibility-color-rgb);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --bg-color: var(--dark-navy);
+  --text-color: var(--white);
+  --text-secondary: var(--light-bluish);
+  --card-bg: var(--navy);
+  --bg-pattern: url("../assets/images/pattern-background-desktop-dark.svg");
+  --bg-pattern-tablet: url("../assets/images/pattern-background-tablet-dark.svg");
+  --bg-pattern-mobile: url("../assets/images/pattern-background-mobile-dark.svg");
+  --border-color: var(--navy);
+}

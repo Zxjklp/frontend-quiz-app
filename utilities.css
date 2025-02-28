@@ -1,0 +1,69 @@
+/* Utility Classes */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.quiz-question.active,
+.quiz-completed.active {
+  display: block;
+}
+
+.quiz-menu.active {
+  display: grid;
+}
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+}
+
+.quiz-header.hidden {
+  display: none;
+}
+
+/* HTML */
+.quiz-header .subject-icon.html {
+  background-color: var(--light-orange-bg);
+}
+body.html-active {
+  --active-color: var(--html-color);
+  --active-color-rgb: var(--html-color-rgb);
+}
+
+/* CSS */
+.quiz-header .subject-icon.css {
+  background-color: var(--light-green-bg);
+}
+body.css-active {
+  --active-color: var(--css-color);
+  --active-color-rgb: var(--css-color-rgb);
+}
+
+/* JavaScript */
+.quiz-header .subject-icon.javascript {
+  background-color: var(--light-blue-bg);
+}
+body.javascript-active {
+  --active-color: var(--js-color);
+  --active-color-rgb: var(--js-color-rgb);
+}
+
+/* Accessibility */
+.quiz-header .subject-icon.accessibility {
+  background-color: var(--light-purple-bg);
+}
+body.accessibility-active {
+  --active-color: var(--accessibility-color);
+  --active-color-rgb: var(--accessibility-color-rgb);
+}

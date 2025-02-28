@@ -1,0 +1,76 @@
+/* Base Styles */
+body {
+  font-family: var(--font-rubik);
+  background-color: var(--bg-color);
+  background-image: var(--bg-pattern);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: var(--container-padding);
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  width: 100%;
+}
+
+/* Header */
+header {
+  margin-bottom: var(--gap-large);
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+/* For when the quiz is active, show title on left, toggle on right */
+.header-content.quiz-active {
+  justify-content: space-between;
+}
+
+main {
+  margin-top: 6rem;
+}
+
+/* Quiz Menu Layout */
+.quiz-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-large);
+  align-items: start;
+  justify-content: space-between;
+}
+
+.title {
+  max-width: 475px;
+}
+
+/* Question Display Layout */
+.quiz-question {
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.question-container {
+  display: grid;
+  grid-template-columns: 465px 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+}
+
+/* Completed Quiz Layout */
+.quiz-completed {
+  max-width: 564px;
+  margin: 0 auto;
+  text-align: center;
+}
