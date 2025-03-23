@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://github.com/Zxjklp/frontend-quiz-app)
+- [Solution URL](https://www.frontendmentor.io/solutions/frontend-quiz-app-wtGdPd0lL4)
 - [Live Site URL](https://zxjklp.github.io/frontend-quiz-app/)
 
 ## My process
